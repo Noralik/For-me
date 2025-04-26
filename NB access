@@ -1,8 +1,0 @@
-
-wr mem real switch
-https://www.cisco.com/c/en/us/support/docs/ios-nx-os-software/ios-software-releases-122-mainline/46741-backup-config.html
-
-access=list 
-https://www.cisco.com/c/en/us/support/docs/security/ios-firewall/23602-confaccesslists.html
-https://habr.com/ru/articles/121806/
-https://doc.s-terra.ru/rh_output/4.3/Unit/output/mergedProjects/Console/show_access-lists.htm
