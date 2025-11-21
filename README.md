@@ -1,24 +1,23 @@
-# Mini Projects
+# 🗂️ Misc / Scrap Branch
 
-Этот репозиторий — моя личная коллекция небольших проектов и экспериментов.  
-Большинство проектов сделаны для практики, изучения новых технологий или просто ради интереса.
+## 📌 Purpose of This Branch
 
-## Содержание
+The meaning of this branch is simple — it serves as a **storage space for miscellaneous content**, including:
 
-- **Web Programs Table**  
-  Простая веб-страница с таблицей программ и драйверов, сделанная на HTML/CSS/JavaScript.
+- random images,
+- wallpapers,
+- background pictures,
+- unused assets,
+- personal scrap files,
+- separate links or references.
 
-- **Clicker Game**  
-  Мини-игра "кликер", написанная на JavaScript.
+This branch is not structured or organized and may contain experimental or temporary files.
 
-- **И Другое**  
-    Ты когда нибудь хотели стать лучшей версией себя
-  
-## Зачем?
-
-Эти проекты не планируются к публикации или активному развитию.  
-Репозиторий существует в первую очередь для моего удобства и хранения идей.
+It acts as a **dump/storage area** for anything that doesn’t fit into other branches or doesn’t require proper categorization.
 
 ---
 
-> Сделано для себя. Если вдруг кому-то пригодится — приятно!
+## ⚠️ Note
+This branch may include incomplete, broken, or unoptimized files.  
+It is **not intended for production use**.
+
