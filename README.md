@@ -92,7 +92,7 @@ CREATE TABLE operators (
 
 # 🖼️ Пример
 ```
-<img width="1030" height="515" alt="image" src="https://github.com/user-attachments/assets/36e544e4-88f2-4931-8dc2-5fc76db8f81a" />
+<img width="1101" height="641" alt="image (3)" src="https://github.com/user-attachments/assets/1a674f7b-0ccc-4cee-8d2f-87ae98d598b4" />
 
 ```
 
