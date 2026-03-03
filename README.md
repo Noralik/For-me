@@ -91,3 +91,24 @@
 ## 🗃️ Предполагаемая структура репозитория
 
 ![anime-girl-school-uniform-4k-wallpaper-uhdpaper com-260@5@b](https://github.com/user-attachments/assets/b228ce5b-d41a-454f-8d32-04b05abb9275)
+┌─────────────────────┐
+│     Frontend        │
+│ (Web, SPA)          │
+└─────────┬───────────┘
+          │ REST
+┌─────────▼───────────┐
+│     Backend API     │
+│  (FastAPI/Node)     │
+├─────────────────────┤
+│  Auth + Logic       │
+├─────────────────────┤
+│  PostgreSQL         │
+└─────────┬───────────┘
+          │
+┌─────────▼───────────┐
+│   File Storage      │
+└─────────────────────┘
+Docker-compose:
+- backend
+- db
+- frontend
