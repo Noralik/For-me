@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Failiserver</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/javascript.js" defer></script>
+</head>
+
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+    <div>
+        👤 {{ user if user else "Külaline" }}
+    </div>
+
+    <div>
+        {% if user %}
+            <button onclick="location.href='/logout'">Logi välja</button>
+        {% else %}
+            <button onclick="location.href='/login_page'">Logi sisse</button>
+        {% endif %}
+    </div>
+</div>
+
+<!-- MENU -->
+<div class="menu">
+    <button onclick="switchTab('main')">Avaleht</button>
+    <button onclick="switchTab('profile')">Minu failid</button>
+    <button onclick="openUpload()">Laadi üles</button>
+
+    <input id="search" placeholder="otsi..." oninput="filterGallery()">
+</div>
+
+<!-- MAIN -->
+<div id="main" class="section active">
+    <h2>Avalik galerii</h2>
+    <div id="gallery"></div>
+</div>
+
+<!-- PROFILE -->
+<div id="profile" class="section">
+    <h2>Minu failid</h2>
+    <div id="my_gallery"></div>
+</div>
+
+<!-- UPLOAD -->
+<div id="uploadModal" class="modal hidden" onclick="bgClose(event)">
+    <div class="modal-content">
+
+        <span class="close" onclick="closeUpload()">×</span>
+
+        <h3>Upload</h3>
+
+        <form id="uploadForm">
+
+            <input type="file" name="file" required onchange="previewImage(event)">
+            <img id="preview" style="display:none; max-width:200px; margin-top:10px;">
+
+            <input name="title" placeholder="Nimi">
+            <input name="description" placeholder="Kirjeldus">
+
+            <label>
+                Avalik
+                <input type="checkbox" name="public">
+            </label>
+
+            <button type="submit">Upload</button>
+        </form>
+
+    </div>
+</div>
+
+<!-- VIEW MODAL -->
+<div id="viewModal" class="modal hidden" onclick="bgCloseView(event)">
+    <div class="modal-content large">
+
+        <span class="close" onclick="closeView()">×</span>
+
+        <img id="viewImg" style="max-width:100%; border-radius:12px;">
+
+        <!-- 📌 META INFO (ВОЗВРАЩЕНО) -->
+        <div id="meta"></div>
+
+        <!-- 🔥 DELETE (ОТДЕЛЬНО, КРАСНАЯ, ВСЕГДА ВИДНА) -->
+        <button style="background:red;color:white;margin-top:10px;"
+                onclick="deleteFile(currentFile.id)">
+            🗑 Delete
+        </button>
+
+        <button onclick="downloadFile()">Download</button>
+
+        <h3>Edit</h3>
+
+        <input id="editTitle" placeholder="Nimi">
+        <input id="editDesc" placeholder="Kirjeldus">
+	<input id="editCreator" placeholder="Creator (who made it)">
+        <input id="editTags" placeholder="tags">
+
+        <button onclick="saveMeta()">Save</button>
+
+    </div>
+</div>
+
+</body>
+</html>

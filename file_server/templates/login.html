@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Logi sisse / Registreeru</title>
+</head>
+
+<body>
+
+<h2>Logi sisse</h2>
+
+<form action="/login" method="post">
+    <input name="username" placeholder="Kasutajanimi" required>
+    <input name="password" type="password" placeholder="Parool" required>
+    <button type="submit">Logi sisse</button>
+</form>
+
+<hr>
+
+<h2>Registreeru</h2>
+
+<form action="/register" method="post">
+    <input name="username" placeholder="Kasutajanimi" required>
+    <input name="password" type="password" placeholder="Parool" required>
+    <button type="submit">Registreeru</button>
+</form>
+
+</body>
+</html>
