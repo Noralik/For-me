@@ -1,114 +1,208 @@
-# 📁 Проект: Веб-сервер с теговой системой + Файловый сервер
+# README (EST)
 
-> Этот репозиторий фиксирует идею и базовые требования к проекту, чтобы спустя время было понятно **что**, **зачем** и **для чего** планировалось реализовать.
+# WebFile Server
 
----
+Lihtne veebipõhine failiserver koos tagide süsteemi ja kasutajakontodega.
 
-## 🧩 Концепция
-
-Проект состоит из двух частей:
-
-1) **Веб-сервер** — сайт с системой тегов для навигации по изображениям/файлам (идея навеяна удобством тегов на Rule34 — исключительно как пример организации данных).
-2) **Файловый сервер** — полноценный «проводник»/файловый менеджер для управления файлами на сервере.
-
-Цель — объединить **простой просмотр контента**, **гибкую теговую навигацию** и **удобное серверное управление**.
+Projekt on loodud lõputöö raames erialal Tööstusinformaatika.
 
 ---
 
-## 🌐 1) Веб-сервер
+# 📌 Projekti kirjeldus
 
-### Роли доступа
-- **Обычный пользователь**
-  - Просмотр изображений/страниц.
-  - Нет доступа к скрытым/служебным файлам.
+WebFile Server on veebirakendus failide salvestamiseks, haldamiseks ja otsimiseks brauseri kaudu.
 
-- **Расширенный пользователь**
-  - Всё как у обычного, плюс доступ к закрытым категориям/файлам.
-  - Права только на чтение.
+Projekti peamised eesmärgid:
 
-- **Администратор**
-  - Полный контроль: пользователи, категории, теги.
-  - Резервное копирование (изображения + база данных).
-  - Управление индексом/метаданными.
+* luua mugav failihaldussüsteem;
+* realiseerida tagide süsteem;
+* luua File Explorer / Pinterest stiilis kasutajaliides;
+* valmistada ette alus tulevasele desktop-rakendusele;
+* realiseerida REST API teenuste vaheliseks suhtluseks.
 
-### Основные возможности
-- Поиск и фильтрация по **тегам**.
-- Сортировка (по дате, популярности, размеру и т. п.).
-- Просмотры (grid/list), предпросмотр изображений.
-- Пагинация, «умная» подгрузка.
-- Страницы тегов и категорий.
-- Страница объекта: метаданные, список тегов, навигация «след./пред.»
+Praeguses etapis on projekt õppeprototüüp, mis liikus alpha 0.0.8 versioonist beta 0.1.0 versioonile.
 
 ---
 
-## 💾 2) Файловый сервер (менеджер)
+# ⚙️ Kasutatavad tehnoloogiad
 
-**Задача** — предоставить удобный удалённый интерфейс для работы с файлами:
+## Backend
 
-- Обзор структуры директорий.
-- Операции с файлами: копировать, перемещать, переименовывать, удалять.
-- Загрузка/выгрузка (upload/download).
-- Массовые операции (batch).
-- Привязка/синхронизация тегов к файлам.
-- Точки резервного копирования и восстановление.
+* Python
+* Flask
+* SQLite
+* REST API
 
----
+## Frontend
 
-## 🏷️ Система тегов (ядро навигации)
+* HTML
+* CSS
+* JavaScript
 
-- Теги присваиваются объектам (изображениям/файлам).
-- Поддержка **множественных тегов** на один объект.
-- Группы тегов (напр.: персонажи, авторы, жанры, типы).
-- Подсказки/автодополнение по существующим тегам.
-- ЧПУ-URL: `/tag/{slug}`, `/tags?include=...&exclude=...`
-- (Опционально) иерархия/синонимы тегов.
+## Linux / Server
 
----
-
-## 🔐 Безопасность и права
-
-- Ролевая модель: `user`, `power_user`, `admin`.
-- Разделение приватного/публичного контента.
-- Журналирование действий администратора.
-- Резервные копии с проверкой целостности.
-- Ограничения по размеру/типу загружаемых файлов.
+* Ubuntu
+* BIND9
+* DHCP
+* NTP (chrony)
 
 ---
 
-## 🧭 Roadmap (черновик)
+# ✨ Realiseeritud funktsioonid
 
-- [ ] **MVP Веб-сайта**: каталог, просмотр, базовые теги, пагинация.
-- [ ] **БД метаданных**: схема, индексы, миграции.
-- [ ] **Файловый менеджер**: список/дерево, базовые операции.
-- [ ] **Роли и аутентификация**: логин, сессии/токены, ACL.
-- [ ] **Бэкапы**: стратегия, расписание, восстановление.
-- [ ] **Расширенный поиск**: include/exclude, пересечения, сортировки.
-- [ ] **UI/UX-улучшения**: горячие клавиши, предпросмотры, drag-and-drop.
-- [ ] **Импорт/синхронизация**: массовая загрузка, авто-тегирование (опц.).
+* kasutajate registreerimine ja autentimine;
+* failide üleslaadimine;
+* avalikud ja privaatsed failid;
+* failide hoidmine kasutajate kaustades;
+* tagide süsteem;
+* failide otsing tagide järgi;
+* piltide kuvamine;
+* failiinfo muutmine;
+* REST API;
+* töö lokaalses võrgus.
 
 ---
 
-## 🗃️ Предполагаемая структура репозитория
+# 🔮 Tulevased võimalused
 
-![anime-girl-school-uniform-4k-wallpaper-uhdpaper com-260@5@b](https://github.com/user-attachments/assets/b228ce5b-d41a-454f-8d32-04b05abb9275)
-┌─────────────────────┐
-│     Frontend        │
-│ (Web, SPA)          │
-└─────────┬───────────┘
-          │ REST
-┌─────────▼───────────┐
-│     Backend API     │
-│  (FastAPI/Node)     │
-├─────────────────────┤
-│  Auth + Logic       │
-├─────────────────────┤
-│  PostgreSQL         │
-└─────────┬───────────┘
-          │
-┌─────────▼───────────┐
-│   File Storage      │
-└─────────────────────┘
-Docker-compose:
-- backend
-- db
-- frontend
+* tagide automaatne soovitamine;
+* drag & drop;
+* Docker;
+* MySQL/PostgreSQL;
+* desktop-rakendus;
+* õiguste ja rollide süsteem;
+* mitmekeelsus;
+* failide krüpteerimine;
+* WebSocket teavitused;
+* P2P failiedastus.
+
+---
+
+# 🗂️ Projekti struktuur
+
+```bash
+file_server/
+│
+├── app.py
+├── database.db
+├── uploads/
+│
+├── templates/
+│   ├── index.html
+│   └── login.html
+│
+├── static/
+│   ├── style.css
+│   └── javascript.js
+│
+└── venv/
+```
+
+---
+
+# 🚀 Paigaldamine
+
+## Süsteemi uuendamine
+
+```bash
+sudo apt update
+```
+
+## Python paigaldamine
+
+```bash
+sudo apt install python3 python3-pip python3.12-venv
+```
+
+## Virtuaalkeskkonna loomine
+
+```bash
+python3 -m venv venv
+```
+
+## Virtuaalkeskkonna aktiveerimine
+
+```bash
+source venv/bin/activate
+```
+
+## Flask paigaldamine
+
+```bash
+pip install flask
+```
+
+---
+
+# ▶️ Käivitamine
+
+```bash
+python3 app.py
+```
+
+Pärast käivitamist on veebileht saadaval aadressil:
+
+```txt
+http://127.0.0.1:5000
+```
+
+---
+
+# 🔐 Turvalisus
+
+Realiseeritud:
+
+* paroolide hashimine;
+* avalike ja privaatsete failide eraldamine;
+* teiste kasutajate failide muutmise piiramine.
+
+Planeeritud:
+
+* JWT;
+* HTTPS;
+* DoS kaitse;
+* CSRF kaitse;
+* Docker isolation.
+
+---
+
+# 📁 Failide salvestamine
+
+```bash
+uploads/
+└── username/
+    ├── images/
+    ├── videos/
+    └── other/
+```
+
+---
+
+# 🏷️ Tagide süsteem
+
+Iga fail võib sisaldada:
+
+* tage;
+* kirjeldust;
+* loomise kuupäeva;
+* faili nime.
+
+Tagisid kasutatakse:
+
+* otsinguks;
+* filtreerimiseks;
+* failide sorteerimiseks.
+
+---
+
+# 📌 Projekti staatus
+
+🟡 Beta 0.1.0
+
+Õppeprojekt lõputöö jaoks.
+
+---
+
+# 👨‍💻 Autor
+
+Noralik
